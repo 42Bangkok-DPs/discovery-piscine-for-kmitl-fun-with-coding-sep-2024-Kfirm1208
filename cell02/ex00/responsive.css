@@ -1,0 +1,46 @@
+table {
+    width: 100%;
+    height: 100vh;
+    border-collapse: collapse;
+}
+
+.box {
+    border: 2px solid black;
+    text-align: start;
+    font-size:25px;
+    padding: 5px;
+}
+
+#first {
+    background-color: rgb(73, 90, 100);
+}
+
+#second {
+    background-color: rgb(140, 36, 124);
+}
+
+/* Add responsiveness */
+@media (max-width: 768px) {
+    table {
+        width: 100%;
+        
+    }
+
+    .box {
+        font-size: 14px; 
+        padding: 10px; 
+    }
+}
+
+@media (max-width: 480px) {
+    table, .box {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+    .box {
+        font-size: 12px; 
+        padding: 8px; 
+    }
+}
