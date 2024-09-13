@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Local Task Management</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    #ft_list {
+      margin-top: 20px;
+      padding: 0;
+      list-style-type: none;
+      width: 300px;
+    }
+
+    #ft_list div {
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      padding: 10px;
+      margin-bottom: 5px;
+      cursor: pointer;
+    }
+
+    #new_btn {
+      margin-bottom: 10px;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    #new_btn:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+  <button id="new_btn">New</button>
+  <div id="ft_list"></div>
+
+  <script src="todo.js"></script>
+
+</body>
+</html>
