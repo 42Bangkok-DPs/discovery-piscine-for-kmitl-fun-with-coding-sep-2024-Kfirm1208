@@ -1,0 +1,268 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    /* เปลี่ยนฟอนต์เป็น Poppins */
+    background-color: #f5f5f5;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* แถบ Navigation Bar ด้านบนสุด */
+.navbar {
+    width: 100%;
+    background-color: #000;
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+    font-size: 28px;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+}
+
+/* ส่วน Main Page */
+.main-page {
+    text-align: center;
+    margin-top: 180px;
+    margin-bottom: 70px;
+    padding: 50px 150px;
+    border: 5px solid #333;
+    /* กรอบหนาขึ้นและสีเข้ม */
+    border-radius: 15px;
+    /* ทำมุมกรอบมน */
+    background-color: #fff;
+    /* พื้นหลังของกรอบเป็นสีขาว */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    /* เพิ่มเงาให้กรอบ */
+    position: relative;
+    z-index: 1;
+    /* เพิ่ม z-index ให้กรอบอยู่ข้างบนสุด */
+    overflow: hidden;
+    /* ซ่อนสิ่งที่ล้นออกมานอกกรอบ */
+}
+
+/* เพิ่มการซ้อนทับของกรอบเพื่อให้มีลักษณะเหมือนลอยอยู่ */
+.main-page::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    /* กรอบด้านนอก */
+    border-radius: 20px;
+    /* ทำมุมกรอบมน */
+    z-index: -1;
+    /* วางกรอบนี้ไว้ด้านหลัง */
+}
+
+
+.main-page h1 {
+    font-size: 68px;
+    font-weight: bold;
+    color: #333;
+    letter-spacing: 5px;
+    /* เพิ่มระยะห่างระหว่างตัวอักษร */
+    background: linear-gradient(90deg, #333, #777);
+    /* ไล่สีจากเข้มไปอ่อน */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* ทำให้ไล่สีใช้ได้กับตัวอักษร */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+    /* เพิ่มเงาให้ตัวอักษร */
+    margin-bottom: 20px;
+}
+
+
+/* แถบด้านล่าง Copyright */
+.copyright {
+    width: 100%;
+    background-color: #000;
+    color: white;
+    text-align: right;
+    padding: 10px 20px;
+    /* เว้นระยะห่างจากขอบขวา */
+    font-size: 14px;
+    position: relative;
+    /* ใช้ relative แทน bottom */
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-bottom: 100px;
+}
+
+.image-wrapper {
+    position: relative;
+}
+
+.image-wrapper img {
+    width: 250px;
+    height: 300px;
+    border-radius: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.image-wrapper img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.image-caption {
+    position: absolute;
+    bottom: -50px;
+    /* ปรับให้ชื่ออยู่ใต้ภาพ */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 20px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    font-weight: bold;
+    margin-top: 50px;
+}
+
+.image-wrapper:hover .image-caption {
+    opacity: 1;
+    /* แสดงชื่อเมื่อเอาเมาส์ไปชี้ */
+}
+
+.body {
+    background-color: #fdf5e6;
+    /* พื้นหลังสีครีมอ่อน */
+    border: 2px solid #000;
+    /* กรอบสีดำ */
+    padding: 20px;
+    /* เพิ่มพื้นที่ภายในกรอบ */
+    width: 80%;
+    /* กำหนดความกว้างให้เป็น 80% ของหน้าจอ */
+    height: 100px;
+    margin: 20px auto;
+    /* จัดให้อยู่ตรงกลางหน้าจอ */
+    border-radius: 10px;
+    /* ทำมุมกรอบมน */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* เพิ่มเงาเบาๆ */
+    font-size: 16px;
+    /* ขนาดตัวอักษร */
+    color: #333;
+    /* สีตัวอักษร */
+    text-align: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .main-page {
+        padding: 40px 100px;
+    }
+
+    .main-page h1 {
+        font-size: 50px;
+    }
+
+    .image-wrapper img {
+        width: 200px;
+        height: 260px;
+    }
+}
+
+@media (max-width: 992px) {
+    .main-page {
+        padding: 30px 80px;
+    }
+
+    .main-page h1 {
+        font-size: 44px;
+    }
+
+    .image-wrapper img {
+        width: 180px;
+        height: 240px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        font-size: 24px;
+        padding: 12px 0;
+    }
+
+    .main-page {
+        margin-top: 150px;
+        padding: 20px 50px;
+    }
+
+    .main-page h1 {
+        font-size: 36px;
+    }
+
+    .image-container {
+        flex-direction: column;
+        margin:10px;
+        gap: 30px;
+    }
+
+    .image-wrapper img {
+        width: 160px;
+        height: 200px;
+        margin:18px;
+    }
+    .image-caption {
+        font-size: 12px;
+        
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar {
+        font-size: 20px;
+        padding: 10px 0;
+    }
+
+    .main-page {
+        margin-top: 120px;
+        padding: 15px 30px;
+    }
+
+    .main-page h1 {
+        font-size: 28px;
+        letter-spacing: 2px;
+    }
+
+    .image-wrapper img {
+        width: 140px;
+        height: 220px;
+        margin:25px;
+    }
+
+
+    .image-caption {
+        font-size: 12px;
+        
+    }
+
+    .body {
+        width: 90%;
+        font-size: 14px;
+        padding: 15px;
+    }
+}
