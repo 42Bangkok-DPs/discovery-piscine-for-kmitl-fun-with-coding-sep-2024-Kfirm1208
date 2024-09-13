@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calc</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <form action="javascript:;" onsubmit="calculate(this)">
+        <input type="text" id="a" name="a">
+        <select name="op" id="op">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+            <option value="%">%</option>
+        </select>
+        <input type="text" id="b" name="b">
+        <button type="submit">Try me!</button>
+    </form>
+    <script>
+        //function calculate() using arrow functions
+        const calculate = (form) => {
+            const a = parseInt($(form.a).val());
+            const b = parseInt($(form.b).val());
+            const op = $(form.op).val();
+            let message = "Error :(";
+
+            // Validate inputs
+            if (isNaN(a) || isNaN(b) || a < 0 || b < 0 || $(form.a).val().includes(".") || $(form.b).val().includes(".")) {
+                return alert(message);
+            }
+
+            // Prevent division/modulo by zero
+            if ((op === "%" || op === "/") && b === 0) {
+                message = "It’s over 9000!";
+            } else {
+                // Perform the calculation
+                const operations = {
+                    "+": a + b,
+                    "-": a - b,
+                    "*": a * b,
+                    "/": a / b,
+                    "%": a % b
+                };
+
+                message = operations[op] !== undefined ? operations[op] : "Error :(";
+            }
+
+            console.log(message);
+            alert(message);
+        };
+
+        // Periodic reminder using arrow function
+        setInterval(() => alert("Please, use me..."), 30000);
+
+    </script>
+</body>
+
+</html>
